@@ -9,6 +9,7 @@ import BackButton from '../../components/common/BackButton';
 // Styles.
 import { colors } from '../../styles/colors';
 import { FETCH_PRODUCT_COMMENTS_SAGA } from '../../store/sagas/productsSaga';
+import { ADD_COMMENT_SCREEN } from '../../navigation/navConstants';
 // Utils.
 
 const ProductScreen = ({ navigation }) => {
@@ -41,7 +42,7 @@ const ProductScreen = ({ navigation }) => {
                             title={"Comments:"}
                             content={
                                 <View style={{flexDirection: 'row', justifyContent: 'flex-end', alignItems: 'center'}}>
-                                    <TouchableOpacity onPress={()=>{}} ><Text style={{color: colors.valenciaRed}}>Add comment</Text></TouchableOpacity>
+                                    <TouchableOpacity onPress={()=>{navigation.navigate(ADD_COMMENT_SCREEN)}} ><Text style={{color: colors.valenciaRed}}>Add comment</Text></TouchableOpacity>
                                 </View>
                             } />
                     </ScrollView>
