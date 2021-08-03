@@ -13,7 +13,7 @@ const AppNavigation = () => {
 
     return (
         <NavigationContainer ref={NavigationService.navigationRef}>
-            <Stack.Navigator headerMode={'none'}>
+            <Stack.Navigator screenOptions={{headerShown: false}}>
                 <Stack.Screen name={HOME_STACK} component={HomeStack} />
             </Stack.Navigator>
         </NavigationContainer>
