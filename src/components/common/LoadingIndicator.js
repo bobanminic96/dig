@@ -4,15 +4,15 @@ import { View, Text, ActivityIndicator, StyleSheet } from 'react-native';
 // Styles.
 import { colors } from '../../styles/colors';
 
-const LoadingIndicator = ({ size = 'large', text = "Loading ..." }) => {
+const LoadingIndicator = ({ size = 'large', text = "Loading ...", color = colors.white}) => {
     return (
         <View style={{ alignItems: 'center', justifyContent: 'center' }}>
             <ActivityIndicator
                 animating={true}
-                color={colors.white}
+                color={color}
                 size={size}
             />
-            <Text style={styles.textStyle}>{text}</Text>
+            <Text style={[styles.textStyle, {color: color}]}>{text}</Text>
         </View>
     )
 };

@@ -2,10 +2,12 @@ export const BASE = 'dig/reducer/products'
 
 export const ADD_PRODUCTS = BASE + '/add';
 export const SET_ACTIVE_PRODUCT = BASE + '/set-active';
+export const SET_ACTIVE_COMMENTS = BASE + '/comments';
 
 const initialState = {
     products: [],
-    activeProduct: {}
+    activeProduct: {},
+    activeProductComments: []
 }
 
 export default productsReducer = (state = initialState, action) => {
@@ -17,10 +19,14 @@ export default productsReducer = (state = initialState, action) => {
                 products: action.payload
             }
         case SET_ACTIVE_PRODUCT:
-            console.log(`active product:`, action.payload)
             return {
                 ...state,
                 activeProduct: action.payload
+            }
+        case SET_ACTIVE_COMMENTS:
+            return {
+                ...state,
+                activeProductComments: action.payload
             }
         default:
             return state;
@@ -30,6 +36,13 @@ export default productsReducer = (state = initialState, action) => {
 export const addProductsToReducer = (payload) => {
     return {
         type: ADD_PRODUCTS,
+        payload
+    }
+}
+
+export const addCommentsToReducer = (payload) => {
+    return {
+        type: SET_ACTIVE_COMMENTS,
         payload
     }
 }
