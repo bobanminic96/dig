@@ -9,7 +9,7 @@ const initialState = {
 export default productsReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_PRODUCTS:
-            console.log(`adding products:`, action.payload)
+            console.log(`adding products:`, action.payload.length)
             return {
                 ...state,
                 products: action.payload
