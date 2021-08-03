@@ -14,3 +14,19 @@ export const GET_Products = async () => {
         console.log('Error @ productsService.js: GET_Products ->', err);
     }
 }
+
+export const POST_Comment = async () => {
+    try{
+
+    }catch(err){
+        console.log('Error @ productsService.js: POST_Comment ->', err);
+    }
+}
+
+export const GET_Comments = async () => {
+    try{
+
+    }catch(err){
+        console.log('Error @ productsService.js: GET_Comments ->', err);
+    }
+}

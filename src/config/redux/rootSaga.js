@@ -1,8 +1,9 @@
 import { all } from 'redux-saga/effects';
-import { watchAddProductComment, watchFetchProducts } from '../../store/sagas/productsSaga';
+import { watchAddProductComment, watchFetchProductComments, watchFetchProducts } from '../../store/sagas/productsSaga';
 export default function* rootSaga() {
     yield all([
         watchFetchProducts(),
-        watchAddProductComment()
+        watchAddProductComment(),
+        watchFetchProductComments()
     ])
 }
