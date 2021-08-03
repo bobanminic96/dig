@@ -9,19 +9,28 @@ import BackButton from '../../components/common/BackButton';
 // Styles.
 import { colors } from '../../styles/colors';
 import { FETCH_PRODUCT_COMMENTS_SAGA } from '../../store/sagas/productsSaga';
+import CommentInputField from '../../components/common/CommentInputField';
 // Utils.
 
 const AddCommentScreen = ({ navigation }) => {
     const dispatch = useDispatch();
     let product = useSelector((state) => state.productsReducer.activeProduct);
+    const [commentInput, setCommentInput] = useState("")
 
     return (
         <ScreenWithTitleBar
             backButton={<BackButton navigation={navigation} />}
-            title={product.title}
+            title={'Add comment'}
             screenContent={
                 <>
-                    <Text>Comments</Text>
+                    <Text style={{color: colors.white}}>Add comment for product:</Text>
+                    <Text style={{color: colors.appleGreen, fontSize: 16}}>{product.title}</Text>
+                    <CommentInputField
+                        state={commentInput}
+                        setState={setCommentInput}
+                        placeHolder={"Please add comment"}
+                        height={200}
+                    />
                 </>
             }
         />
@@ -29,19 +38,7 @@ const AddCommentScreen = ({ navigation }) => {
 }
 
 const styles = StyleSheet.create({
-    imageContainer: {
-        width: '100%',
-        height: undefined,
-        aspectRatio: 1,
-        borderRadius: 8,
-        marginBottom: 16
-    },
-    textContent: {
-        fontSize: 16,
-        color: colors.mirageBlue,
-        marginBottom: 16
-    },
-    contentTitleText: { fontWeight: 'bold', marginBottom: 4 }
+    
 })
 
 
