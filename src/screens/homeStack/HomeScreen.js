@@ -1,9 +1,9 @@
 import React, {useEffect} from 'react';
 import { View, Text, FlatList } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
-import LoadingIndicator from '../../components/LoadingIndicator';
-import ProductPreviewCard from '../../components/ProductPreviewCard';
-import ScreenWithTitleBar from '../../components/ScreenWithTitleBar';
+import LoadingIndicator from '../../components/common/LoadingIndicator';
+import ProductPreviewCard from '../../components/product/ProductPreviewCard';
+import ScreenWithTitleBar from '../../components/common/ScreenWithTitleBar';
 import { FETCH_PRODUCTS_SAGA } from '../../store/sagas/productsSaga';
 // Components.
 // Store.

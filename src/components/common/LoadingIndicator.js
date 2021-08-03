@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, ActivityIndicator, StyleSheet } from 'react-native';
 
 // Styles.
-import { colors } from '../styles/colors';
+import { colors } from '../../styles/colors';
 
 const LoadingIndicator = ({ size = 'large', text = "Loading ..." }) => {
     return (

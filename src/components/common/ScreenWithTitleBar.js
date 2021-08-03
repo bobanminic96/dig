@@ -1,15 +1,15 @@
 import React, {useEffect} from 'react';
 import { View, Text, FlatList,StyleSheet } from 'react-native';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
 import DeviceInfo from 'react-native-device-info';
 import { useDispatch, useSelector } from 'react-redux';
 
 // Components.
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 // Store.
 // Styles.
-import { colors } from '../styles/colors';
+import { colors } from '../../styles/colors';
 // Utils.
-import { TOP_PADDING_ANDROID, TOP_PADDING_IOS, TOP_PADDING_NOTCH } from '../styles/constants';
+import { TOP_PADDING_ANDROID, TOP_PADDING_IOS, TOP_PADDING_NOTCH } from '../../styles/constants';
 
 const ScreenWithTitleBar = ({title = "Default Title",screenContent, backButton}) => {
     return (
