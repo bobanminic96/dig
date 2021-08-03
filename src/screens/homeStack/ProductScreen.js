@@ -21,6 +21,7 @@ const ProductScreen = ({ navigation }) => {
             screenContent={
                 <>
                     <Image source={{ uri: product.images[0].original }} style={styles.imageContainer} resizeMode='center' />
+                    <Text style={{color: colors.white, marginVertical: 10, fontWeight: 'bold'}}>Price: {product.price}$</Text>
                     <ScrollView showsVerticalScrollIndicator={false}>
                         <CollapsibleRow
                             title={"Description:"}
