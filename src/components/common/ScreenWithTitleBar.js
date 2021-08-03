@@ -35,7 +35,7 @@ const AppTitleBar = ({ backButton, title, }) => {
         <View style={{ width: BACK_BUTTON_WIDTH }}>
             {backButton}
         </View>
-        <View style={{ justifyContent: 'center', alignItems: 'center', flex: 1, left: 8, right: 8 }}>
+        <View style={{ justifyContent: 'center', alignItems: 'center', flex: 1}}>
             <Text style={styles.titleTextStyle}>{title}</Text>
         </View>
         <View style={{ width: BACK_BUTTON_WIDTH }} />

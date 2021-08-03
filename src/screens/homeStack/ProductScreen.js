@@ -22,9 +22,9 @@ const ProductScreen = ({ navigation }) => {
                     <Image source={{ uri: product.images[0].original }} style={styles.imageContainer} resizeMode='center' />
                     <View style={{ flex: 1, backgroundColor: colors.white, borderRadius: 8, marginBottom: 16 }}>
                         <ScrollView style={{ flexGrow: 1, padding: 8 }}>
-                            <Text style={{ fontWeight: 'bold' }}>Price:</Text>
+                            <Text style={styles.contentTitleText}>Price:</Text>
                             <Text style={styles.textContent}>{product.price}$</Text>
-                            <Text style={{ fontWeight: 'bold' }}>Description:</Text>
+                            <Text style={styles.contentTitleText}>Description:</Text>
                             <Text style={styles.textContent}>{product.description}</Text>
                         </ScrollView>
                     </View>
@@ -46,7 +46,8 @@ const styles = StyleSheet.create({
         fontSize: 16,
         color: colors.mirageBlue,
         marginBottom: 16
-    }
+    },
+    contentTitleText: { fontWeight: 'bold', marginBottom: 4 }
 })
 
 

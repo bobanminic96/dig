@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, ImageBackground, StyleSheet } from 'react-native';
+import { View, Text, ImageBackground, StyleSheet, Image } from 'react-native';
 // Components.
 // Store.
 // Styles.
@@ -8,29 +8,25 @@ import { colors } from '../../styles/colors';
 
 const ProductImageTile = ({ product }) => {
     return (
-        <ImageBackground source={{ uri: product.images[0].original }} style={styles.imageContainer}>
-            <View style={{ flexGrow: 1, justifyContent: 'flex-end' }}>
-                <View style={{ backgroundColor: colors.wildSand, flexDirection: 'row', justifyContent: 'space-between', padding: 4, alignItems: 'center', }}>
-                    <View style={{ flex: 1, margin: 4 }}>
-                        <Text style={styles.textStyle}>Price: {product.price}$</Text>
-                    </View>
-                </View>
-            </View>
-        </ImageBackground>
+        <View style={styles.container}>
+            <Image  source={{uri: product.images[0].original}} style={styles.imgStyle} resizeMode='center'/>
+        </View>
+
     )
 }
 
 const styles = StyleSheet.create({
-    imageContainer: {
+    container: {
         width: 150,
-        height: 300,
+        height: 150,
         borderRadius: 8,
         overflow: 'hidden',
-        resizeMode: 'center'
+        backgroundColor: colors.white
     },
-    textStyle: {
-        color: colors.mirageBlue,
-        fontSize: 12
+    imgStyle:{
+        width: '100%',
+        height: undefined,
+        aspectRatio: 1
     }
 })
 

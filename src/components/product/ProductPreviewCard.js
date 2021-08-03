@@ -1,5 +1,5 @@
-import React, {useEffect} from 'react';
-import { View, Text, StyleSheet, TouchableOpacity,  } from 'react-native';
+import React, { useEffect } from 'react';
+import { View, Text, StyleSheet, TouchableOpacity, } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 
 // Components.
@@ -11,20 +11,20 @@ import { PRODUCT_SCREEN } from '../../navigation/navConstants';
 import { SET_ACTIVE_PRODUCT } from '../../store/reducers/productsReducer';
 // Utils.
 
-const ProductPreviewCard = ({product, navigation}) => {
+const ProductPreviewCard = ({ product, navigation }) => {
     const dispatch = useDispatch();
 
     const onPress = async () => {
-        dispatch({type: SET_ACTIVE_PRODUCT, payload: product});
+        dispatch({ type: SET_ACTIVE_PRODUCT, payload: product });
         navigation.navigate(PRODUCT_SCREEN);
     }
 
     return (
-        <TouchableOpacity onPress={onPress} style={styles.cardContainer} activeOpacity={0.8}>
+        <TouchableOpacity onPress={onPress} style={styles.cardContainer} activeOpacity={0.95}>
             <View style={styles.contentContainer}>
                 <Text style={styles.titleTextStyle}>{product.title}</Text>
-                <Text style={styles.textStyle}>{product.description}</Text>
-                <Text style={styles.textStyle}>{product.price}</Text>
+                <Text numberOfLines={3} style={styles.descriptionTextStyle}>{product.description}</Text>
+                <Text style={styles.priceTextStyle}>Price: {product.price}$</Text>
             </View>
             <ProductImageTile product={product} />
         </TouchableOpacity>
@@ -44,11 +44,18 @@ const styles = StyleSheet.create({
         paddingRight: 8,
         justifyContent: 'space-between'
     },
-    textStyle: {
-        color: colors.white,
-        fontSize: 10
-    },
     titleTextStyle: {
+        color: colors.white,
+        fontSize: 18,
+        fontWeight: 'bold'
+    },
+    descriptionTextStyle: {
+        color: colors.white,
+        fontSize: 12,
+        fontStyle: 'italic',
+
+    },
+    priceTextStyle: {
         color: colors.white,
         fontSize: 14
     }
