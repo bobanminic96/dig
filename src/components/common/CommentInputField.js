@@ -18,7 +18,6 @@ const CommentInputField = ({ state, setState, height, placeHolder = "Default Pla
             placeholder={placeHolder}
             style={[styles.noteInputFieldStyle, { height: height }]}
             placeholderTextColor={colors.cranberryRed}
-            
         />
     )
 }

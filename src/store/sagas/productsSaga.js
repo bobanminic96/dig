@@ -1,5 +1,5 @@
 import { call, put, takeEvery } from "redux-saga/effects";
-import { GET_Products } from "../../services/productsService";
+import { GET_Products, POST_Comment } from "../../services/productsService";
 import { setCommentsLoading, setProductsLoading } from "../reducers/loadReducer";
 import { addProductsToReducer } from "../reducers/productsReducer";
 
@@ -23,11 +23,14 @@ export function* fetchProducts() {
     }
 }
 
-export function* addProductComment({productId,comment}){
-    console.log(`productsSaga.js: saga: ${ADD_PRODUCT_COMMENT_SAGA}`);
+export function* addProductComment({data}){
+    console.log(`productsSaga.js: saga: ${ADD_PRODUCT_COMMENT_SAGA} for product:`, data.productId);
+    console.log('comment:' + data.comment);
     try{
         yield put(setCommentsLoading(true));
+        let data = yield call(POST_Comment,data);
 
+        return;
     }catch(err){
         console.log(`Error @ productsSaga.js -> saga: ${ADD_PRODUCT_COMMENT_SAGA}`, err);
     }finally{

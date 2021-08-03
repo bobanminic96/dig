@@ -15,15 +15,18 @@ export const GET_Products = async () => {
     }
 }
 
-export const POST_Comment = async () => {
+export const POST_Comment = async ({data}) => {
+    console.log(`POST_Comment: data`, data);
     try{
 
+
+        return;
     }catch(err){
         console.log('Error @ productsService.js: POST_Comment ->', err);
     }
 }
 
-export const GET_Comments = async () => {
+export const GET_Comments = async ({productId}) => {
     try{
 
     }catch(err){

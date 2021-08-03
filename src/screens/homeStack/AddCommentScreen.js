@@ -3,19 +3,24 @@ import { View, Text, FlatList, Image, StyleSheet, ScrollView, TouchableOpacity }
 import { useDispatch, useSelector } from 'react-redux';
 // Components.
 import ScreenWithTitleBar from '../../components/common/ScreenWithTitleBar';
-import CollapsibleRow from '../../components/common/CollapsibleRow';
 import BackButton from '../../components/common/BackButton';
+import CommentInputField from '../../components/common/CommentInputField';
+import SubmitButton from '../../components/common/SubmitButton';
 // Store.
 // Styles.
 import { colors } from '../../styles/colors';
-import { FETCH_PRODUCT_COMMENTS_SAGA } from '../../store/sagas/productsSaga';
-import CommentInputField from '../../components/common/CommentInputField';
+import { ADD_PRODUCT_COMMENT_SAGA } from '../../store/sagas/productsSaga';
+
 // Utils.
 
 const AddCommentScreen = ({ navigation }) => {
     const dispatch = useDispatch();
     let product = useSelector((state) => state.productsReducer.activeProduct);
     const [commentInput, setCommentInput] = useState("")
+
+    const onSubmit = () => {
+        dispatch({type: ADD_PRODUCT_COMMENT_SAGA,data: {productId: product.id, comment: commentInput}});
+    }
 
     return (
         <ScreenWithTitleBar
@@ -31,6 +36,7 @@ const AddCommentScreen = ({ navigation }) => {
                         placeHolder={"Please add comment"}
                         height={200}
                     />
+                    <SubmitButton text={"Submit comment"} onPress={onSubmit}/>
                 </>
             }
         />
