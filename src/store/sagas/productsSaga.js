@@ -6,6 +6,7 @@ import { addProductsToReducer } from "../reducers/productsReducer";
 const BASE = 'dig/saga/products';
 
 export const FETCH_PRODUCTS_SAGA = BASE + '/fetch';
+export const ADD_PRODUCT_COMMENT_SAGA = BASE + '/comment';
 
 export function* fetchProducts() {
     console.log(`productsSaga.js: saga: ${FETCH_PRODUCTS_SAGA}`);
@@ -21,6 +22,20 @@ export function* fetchProducts() {
     }
 }
 
+export function* addProductComment({productId,comment}){
+    try{
+
+    }catch(err){
+        console.log(`Error @ productsSaga.js -> saga: ${ADD_PRODUCT_COMMENT_SAGA}`, err);
+    }finally{
+
+    }
+}
+
 export function* watchFetchProducts(){
     yield takeEvery(FETCH_PRODUCTS_SAGA,fetchProducts);
+}
+
+export function* watchAddProductComment(){
+    yield takeEvery(ADD_PRODUCT_COMMENT_SAGA,addProductComment);
 }
