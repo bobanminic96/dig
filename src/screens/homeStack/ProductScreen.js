@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, FlatList, Image, StyleSheet, ScrollView } from 'react-native';
+import { View, Text, FlatList, Image, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import BackButton from '../../components/common/BackButton';
 import CollapsibleRow from '../../components/common/CollapsibleRow';
@@ -30,7 +30,14 @@ const ProductScreen = ({ navigation }) => {
                         <CollapsibleRow
                             title={"Specification:"}
                             content={
-                                <Text style={styles.textContent}>{product.specification}$</Text>
+                                <Text style={styles.textContent}>{product.specification}</Text>
+                            } />
+                        <CollapsibleRow
+                            title={"Comments:"}
+                            content={
+                                <View style={{flexDirection: 'row', justifyContent: 'flex-end', alignItems: 'center'}}>
+                                    <TouchableOpacity onPress={()=>{}} ><Text style={{color: colors.valenciaRed}}>Add comment</Text></TouchableOpacity>
+                                </View>
                             } />
                     </ScrollView>
                 </>
