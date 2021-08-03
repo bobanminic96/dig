@@ -8,7 +8,7 @@ import { HOME_SCREEN } from '../navConstants';
 const HomeStack = () => {
     const HomeStack = createStackNavigator();
     return (
-        <HomeStack.Navigator headerMode="none" >
+        <HomeStack.Navigator screenOptions={{headerShown: false}} >
             <HomeStack.Screen name={HOME_SCREEN} component={HomeScreen}/>
         </HomeStack.Navigator>
     )
