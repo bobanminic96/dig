@@ -16,8 +16,8 @@ const ScreenWithTitleBar = ({title = "Default Title",screenContent, backButton})
             <SafeAreaProvider>
                 <View style={styles.screenContainer}>
                     <AppTitleBar title={title} backButton={backButton} />
-                    <View style={styles.overlay}>
-                        <View style={{ flex: 1, padding: 16 }}>
+                    <View style={styles.contentContainer}>
+                        <View style={{ flex: 1 }}>
                             {screenContent}
                         </View>
                     </View>
@@ -48,7 +48,7 @@ const AppTitleBar = ({ backButton, title, }) => {
 const styles = StyleSheet.create({
     screenContainer: {
         flex: 1,
-        backgroundColor: colors.backgroundImageOverlay,
+        backgroundColor: colors.screenBackground,
         resizeMode: 'contain'
     },
     titleRowContainer: {
@@ -61,11 +61,11 @@ const styles = StyleSheet.create({
         color: colors.mirageBlue,
         fontWeight: 'bold'
     },
-    overlay: {
+    contentContainer: {
         padding: 16,
         paddingBottom: 0,
         flex: 1,
-        backgroundColor: colors.backgroundImageOverlay
+        backgroundColor: colors.screenBackground
     },
     subtitleTextStyle: {
         fontSize: 12,

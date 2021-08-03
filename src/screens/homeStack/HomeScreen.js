@@ -29,6 +29,7 @@ const HomeScreen = ({navigation}) => {
                     {loadingProducts && <LoadingIndicator text="Loading products ..."/>}
                     {!loadingProducts && 
                         <FlatList
+                            showsVerticalScrollIndicator={false}
                             data={products}
                             renderItem={({item,index}) => <ProductPreviewCard product={item}/>}
                             keyExtractor={(item,index) => {
