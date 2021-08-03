@@ -19,7 +19,7 @@ const HomeScreen = ({navigation}) => {
         <ScreenWithTitleBar
             title={"Products"}
             screenContent={
-                <View></View>
+                <View style={{backgroundColor: 'yellow', flex: 1}}></View>
             }
         />
     )

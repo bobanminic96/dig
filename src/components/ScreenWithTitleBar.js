@@ -23,7 +23,6 @@ const ScreenWithTitleBar = ({title = "Default Title",screenContent, backButton})
                     </View>
                 </View>
             </SafeAreaProvider>
-
     );
 }
 
