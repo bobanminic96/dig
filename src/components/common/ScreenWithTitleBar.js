@@ -9,7 +9,7 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 // Styles.
 import { colors } from '../../styles/colors';
 // Utils.
-import { TOP_PADDING_ANDROID, TOP_PADDING_IOS, TOP_PADDING_NOTCH } from '../../styles/constants';
+import { BACK_BUTTON_WIDTH, TOP_PADDING_ANDROID, TOP_PADDING_IOS, TOP_PADDING_NOTCH } from '../../styles/constants';
 
 const ScreenWithTitleBar = ({title = "Default Title",screenContent, backButton}) => {
     return (
@@ -34,13 +34,13 @@ const AppTitleBar = ({ backButton, title, }) => {
         iosDevice ? TOP_PADDING_IOS : TOP_PADDING_ANDROID;
     
     return <View style={[styles.titleBarContainer,{paddingTop: TOP_PADDING, height: 65 + TOP_PADDING}]}>
-        <View style={{ width: 80 }}>
+        <View style={{ width: BACK_BUTTON_WIDTH }}>
             {backButton}
         </View>
-        <View style={{ justifyContent: 'center', alignItems: 'center' }}>
+        <View style={{ justifyContent: 'center', alignItems: 'center', flex: 1, left: 8, right: 8}}>
             <Text style={styles.titleTextStyle}>{title}</Text>
         </View>
-        <View style={{ width: 80 }} />
+        <View style={{ width: BACK_BUTTON_WIDTH }} />
     </View>
 
 }
@@ -59,7 +59,8 @@ const styles = StyleSheet.create({
     titleTextStyle: {
         fontSize: 18,
         color: colors.mirageBlue,
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        textAlign: 'center',
     },
     contentContainer: {
         padding: 16,

@@ -8,12 +8,14 @@ import ProductImageTile from './ProductImageTile';
 // Styles.
 import { colors } from '../../styles/colors';
 import { PRODUCT_SCREEN } from '../../navigation/navConstants';
+import { SET_ACTIVE_PRODUCT } from '../../store/reducers/productsReducer';
 // Utils.
 
 const ProductPreviewCard = ({product, navigation}) => {
     const dispatch = useDispatch();
 
     const onPress = async () => {
+        dispatch({type: SET_ACTIVE_PRODUCT, payload: product});
         navigation.navigate(PRODUCT_SCREEN);
     }
 

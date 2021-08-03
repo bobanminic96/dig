@@ -9,10 +9,13 @@ import ScreenWithTitleBar from '../../components/common/ScreenWithTitleBar';
 // Utils.
 
 const ProductScreen = ({navigation}) => {
+    let product = useSelector((state) => state.productsReducer.activeProduct);
+
+
     return (
         <ScreenWithTitleBar
             backButton={<BackButton navigation={navigation}/>}
-            title={"Products Screen"}
+            title={product.title}
             screenContent={
                 <View style={{flex: 1, backgroundColor: 'yellow'}}></View>
             }
