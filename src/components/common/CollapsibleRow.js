@@ -10,27 +10,33 @@ import { colors } from '../../styles/colors';
 
 const CollapsibleRow = ({ title, content }) => {
     const [collapsed, setCollapsed] = useState(true);
-
-
     return (
-        <View style={{ backgroundColor: colors.white, borderRadius: 16, marginBottom: 8 }}>
-            <TouchableOpacity style={{ width: '100%', overflow: 'hidden', }} onPress={() => { setCollapsed(!collapsed) }} activeOpacity={1}>
+        <View style={styles.rowContainer}>
+            <TouchableOpacity onPress={() => { setCollapsed(!collapsed) }} activeOpacity={1}>
                 <View style={styles.titleRowContent}>
                     <Text style={styles.titleTextStyle}>{title}</Text>
                     {collapsed ? <Icon name="caret-right" size={14} /> : <Icon name="caret-down" size={14} />}
                 </View>
             </TouchableOpacity>
             <Collapsible collapsed={collapsed}>
-                <View style={{ padding: 16, paddingTop: 0 }}>
+                <View style={styles.contentContainer}>
                     {content}
                 </View>
             </Collapsible>
         </View>
-
     )
 }
 
 const styles = StyleSheet.create({
+    rowContainer:{ 
+        backgroundColor: colors.white, 
+        borderRadius: 16, 
+        marginBottom: 8 
+    },
+    contentContainer:{ 
+        padding: 16, 
+        paddingTop: 0 
+    },
     titleRowContent: {
         flexDirection: 'row',
         justifyContent: 'space-between',

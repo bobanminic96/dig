@@ -1,15 +1,15 @@
 import React, { useEffect } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
-
 // Components.
 import ProductImageTile from './ProductImageTile';
 // Store.
+import { SET_ACTIVE_PRODUCT } from '../../store/reducers/productsReducer';
 // Styles.
 import { colors } from '../../styles/colors';
-import { PRODUCT_SCREEN } from '../../navigation/navConstants';
-import { SET_ACTIVE_PRODUCT } from '../../store/reducers/productsReducer';
 // Utils.
+import { PRODUCT_SCREEN } from '../../navigation/navConstants';
+
 
 const ProductPreviewCard = ({ product, navigation }) => {
     const dispatch = useDispatch();

@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, FlatList, Image, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
-import BackButton from '../../components/common/BackButton';
-import CollapsibleRow from '../../components/common/CollapsibleRow';
-import ScreenWithTitleBar from '../../components/common/ScreenWithTitleBar';
-import { colors } from '../../styles/colors';
-
 // Components.
+import ScreenWithTitleBar from '../../components/common/ScreenWithTitleBar';
+import CollapsibleRow from '../../components/common/CollapsibleRow';
+import BackButton from '../../components/common/BackButton';
 // Store.
 // Styles.
+import { colors } from '../../styles/colors';
 // Utils.
 
 const ProductScreen = ({ navigation }) => {
