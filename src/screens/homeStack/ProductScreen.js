@@ -8,9 +8,11 @@ import BackButton from '../../components/common/BackButton';
 // Store.
 // Styles.
 import { colors } from '../../styles/colors';
+import { FETCH_PRODUCT_COMMENTS_SAGA } from '../../store/sagas/productsSaga';
 // Utils.
 
 const ProductScreen = ({ navigation }) => {
+    const dispatch = useDispatch();
     let product = useSelector((state) => state.productsReducer.activeProduct);
 
     return (
@@ -33,6 +35,9 @@ const ProductScreen = ({ navigation }) => {
                                 <Text style={styles.textContent}>{product.specification}</Text>
                             } />
                         <CollapsibleRow
+                            onRender={()=>{
+                                dispatch({type: FETCH_PRODUCT_COMMENTS_SAGA,productId: product.id});
+                            }}
                             title={"Comments:"}
                             content={
                                 <View style={{flexDirection: 'row', justifyContent: 'flex-end', alignItems: 'center'}}>

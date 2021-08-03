@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { View, Text, FlatList, StyleSheet } from 'react-native';
 import DeviceInfo from 'react-native-device-info';
 import { useDispatch, useSelector } from 'react-redux';
-
 // Components.
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 // Store.

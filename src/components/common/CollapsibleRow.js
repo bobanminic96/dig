@@ -8,8 +8,13 @@ import Icon from 'react-native-vector-icons/Fontisto'
 import { colors } from '../../styles/colors';
 // Utils.
 
-const CollapsibleRow = ({ title, content }) => {
+const CollapsibleRow = ({ title, content, onRender = () => {}}) => {
     const [collapsed, setCollapsed] = useState(true);
+
+    useEffect(() => {
+        onRender();
+    }, [])
+
     return (
         <View style={styles.rowContainer}>
             <TouchableOpacity onPress={() => { setCollapsed(!collapsed) }} activeOpacity={1}>

@@ -24,6 +24,7 @@ export function* fetchProducts() {
 }
 
 export function* addProductComment({productId,comment}){
+    console.log(`productsSaga.js: saga: ${ADD_PRODUCT_COMMENT_SAGA}`);
     try{
         yield put(setCommentsLoading(true));
 
@@ -35,6 +36,7 @@ export function* addProductComment({productId,comment}){
 }
 
 export function* fetchProductComments({productId}){
+    console.log(`productsSaga.js: saga: ${FETCH_PRODUCT_COMMENTS_SAGA} for product:`, productId);
     try{
         yield put(setCommentsLoading(true));
 
