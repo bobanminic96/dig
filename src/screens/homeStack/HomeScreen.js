@@ -31,7 +31,7 @@ const HomeScreen = ({navigation}) => {
                         <FlatList
                             showsVerticalScrollIndicator={false}
                             data={products}
-                            renderItem={({item,index}) => <ProductPreviewCard product={item}/>}
+                            renderItem={({item,index}) => <ProductPreviewCard product={item} navigation={navigation}/>}
                             keyExtractor={(item,index) => {
                                 return "PR" + index;
                             }}

@@ -7,13 +7,14 @@ import ProductImageTile from './ProductImageTile';
 // Store.
 // Styles.
 import { colors } from '../../styles/colors';
+import { PRODUCT_SCREEN } from '../../navigation/navConstants';
 // Utils.
 
-const ProductPreviewCard = ({product}) => {
+const ProductPreviewCard = ({product, navigation}) => {
     const dispatch = useDispatch();
 
     const onPress = async () => {
-    
+        navigation.navigate(PRODUCT_SCREEN);
     }
 
     return (
