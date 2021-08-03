@@ -11,6 +11,7 @@ import LoadingIndicator from '../../components/common/LoadingIndicator';
 import { colors } from '../../styles/colors';
 import { FETCH_PRODUCT_COMMENTS_SAGA } from '../../store/sagas/productsSaga';
 import { ADD_COMMENT_SCREEN } from '../../navigation/navConstants';
+import CommentsList from '../../components/product/CommentsList';
 // Utils.
 
 const ProductScreen = ({ navigation }) => {
@@ -31,42 +32,32 @@ const ProductScreen = ({ navigation }) => {
                         showsVerticalScrollIndicator={false}
                         ListHeaderComponent={
                             <>
-                            <CollapsibleRow
-                            title={"Description:"}
-                            content={
-                                <Text style={styles.textContent}>{product.description}</Text>
-                            } />
-                        <CollapsibleRow
-                            title={"Specification:"}
-                            content={
-                                <Text style={styles.textContent}>{product.specification}</Text>
-                            } />
-                        <CollapsibleRow
-                            onRender={() => {
-                                dispatch({ type: FETCH_PRODUCT_COMMENTS_SAGA, productId: product.id });
-                            }}
-                            title={"Comments:"}
-                            content={
-                                <View>
-                                    <View style={{ flexDirection: 'row', justifyContent: 'flex-end', alignItems: 'center' }}>
-                                        <TouchableOpacity onPress={() => { navigation.navigate(ADD_COMMENT_SCREEN) }} ><Text style={{ color: colors.valenciaRed }}>Add comment</Text></TouchableOpacity>
-                                    </View>
-                                    {commentsLoading && <LoadingIndicator text="Loading comments ..." color={colors.valenciaRed}/>}
-                                    {!commentsLoading && 
-                                        <FlatList
-                                            data={comments}
-                                            renderItem={({item,index}) => <Text>{item.comment}</Text>}
-                                            keyExtractor={(item,index) => {
-                                                return "CM" + index;
-                                            }}
-                                        />
-                                    }
-                                </View>
-
-                            } />
+                                <CollapsibleRow
+                                    title={"Description:"}
+                                    content={
+                                        <Text style={styles.textContent}>{product.description}</Text>
+                                    } />
+                                <CollapsibleRow
+                                    title={"Specification:"}
+                                    content={
+                                        <Text style={styles.textContent}>{product.specification}</Text>
+                                    } />
+                                <CollapsibleRow
+                                    onRender={() => {
+                                        dispatch({ type: FETCH_PRODUCT_COMMENTS_SAGA, productId: product.id });
+                                    }}
+                                    title={"Comments:"}
+                                    content={
+                                        <>
+                                            <View style={{ flexDirection: 'row', justifyContent: 'flex-end', alignItems: 'center' , marginVertical: 8}}>
+                                                <TouchableOpacity onPress={() => { navigation.navigate(ADD_COMMENT_SCREEN) }} ><Text style={styles.addCommentButtonStyle}>Add comment</Text></TouchableOpacity>
+                                            </View>
+                                            <CommentsList />
+                                        </>
+                                    } />
                             </>
                         }
-                    
+
                     />
                 </>
             }
@@ -87,7 +78,8 @@ const styles = StyleSheet.create({
         color: colors.mirageBlue,
         marginBottom: 16
     },
-    contentTitleText: { fontWeight: 'bold', marginBottom: 4 }
+    contentTitleText: { fontWeight: 'bold', marginBottom: 4 },
+    addCommentButtonStyle: { color: colors.appleGreen,borderColor: colors.appleGreen, borderWidth: 2, padding: 6, borderRadius: 6, justifyContent: 'center', alignItems: 'center' }
 })
 
 

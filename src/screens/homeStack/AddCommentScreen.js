@@ -7,10 +7,9 @@ import BackButton from '../../components/common/BackButton';
 import CommentInputField from '../../components/common/CommentInputField';
 import SubmitButton from '../../components/common/SubmitButton';
 // Store.
+import { ADD_PRODUCT_COMMENT_SAGA } from '../../store/sagas/productsSaga';
 // Styles.
 import { colors } from '../../styles/colors';
-import { ADD_PRODUCT_COMMENT_SAGA } from '../../store/sagas/productsSaga';
-
 // Utils.
 
 const AddCommentScreen = ({ navigation }) => {
