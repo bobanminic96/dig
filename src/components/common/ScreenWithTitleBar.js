@@ -1,5 +1,5 @@
-import React, {useEffect} from 'react';
-import { View, Text, FlatList,StyleSheet } from 'react-native';
+import React, { useEffect } from 'react';
+import { View, Text, FlatList, StyleSheet } from 'react-native';
 import DeviceInfo from 'react-native-device-info';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -11,18 +11,16 @@ import { colors } from '../../styles/colors';
 // Utils.
 import { BACK_BUTTON_WIDTH, TOP_PADDING_ANDROID, TOP_PADDING_IOS, TOP_PADDING_NOTCH } from '../../styles/constants';
 
-const ScreenWithTitleBar = ({title = "Default Title",screenContent, backButton}) => {
+const ScreenWithTitleBar = ({ title = "Default Title", screenContent, backButton }) => {
     return (
-            <SafeAreaProvider>
-                <View style={styles.screenContainer}>
-                    <AppTitleBar title={title} backButton={backButton} />
-                    <View style={styles.contentContainer}>
-                        <View style={{ flex: 1 }}>
-                            {screenContent}
-                        </View>
-                    </View>
+        <SafeAreaProvider>
+            <View style={styles.screenContainer}>
+                <AppTitleBar title={title} backButton={backButton} />
+                <View style={styles.contentContainer}>
+                    {screenContent}
                 </View>
-            </SafeAreaProvider>
+            </View>
+        </SafeAreaProvider>
     );
 }
 
@@ -32,12 +30,12 @@ const AppTitleBar = ({ backButton, title, }) => {
 
     let TOP_PADDING = hasNotch ? TOP_PADDING_NOTCH :
         iosDevice ? TOP_PADDING_IOS : TOP_PADDING_ANDROID;
-    
-    return <View style={[styles.titleBarContainer,{paddingTop: TOP_PADDING, height: 65 + TOP_PADDING}]}>
+
+    return <View style={[styles.titleBarContainer, { paddingTop: TOP_PADDING, height: 65 + TOP_PADDING }]}>
         <View style={{ width: BACK_BUTTON_WIDTH }}>
             {backButton}
         </View>
-        <View style={{ justifyContent: 'center', alignItems: 'center', flex: 1, left: 8, right: 8}}>
+        <View style={{ justifyContent: 'center', alignItems: 'center', flex: 1, left: 8, right: 8 }}>
             <Text style={styles.titleTextStyle}>{title}</Text>
         </View>
         <View style={{ width: BACK_BUTTON_WIDTH }} />
@@ -49,7 +47,6 @@ const styles = StyleSheet.create({
     screenContainer: {
         flex: 1,
         backgroundColor: colors.screenBackground,
-        resizeMode: 'contain'
     },
     titleRowContainer: {
         flexDirection: 'row',
